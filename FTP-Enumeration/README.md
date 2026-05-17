@@ -16,4 +16,4 @@ Learned FTP enumeration workflow and service interaction.
 ## Mitigation Awareness
 Use strong authentication
 Disable anonymous access if unnecessary
-Apply proper access controls
+Apply proper access controls.
