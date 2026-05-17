@@ -14,4 +14,4 @@ SMB service identified and share enumeration performed.
 Learned SMB enumeration workflow.
 
 ## Mitigation Awareness
-Restrict unnecessary shares and apply proper authentication.
+Restrict unnecessary shares and apply proper authentication
