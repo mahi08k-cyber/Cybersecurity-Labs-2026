@@ -14,7 +14,9 @@ This repository contains my cybersecurity learning journey, lab writeups, enumer
 - Wireshark 
 - Linux Fundamental labs
 - Linux Privelage Escalation 
-- Network Enumeration 
+- Network Lab
+- Web - Enumeration 
+- Metasploit 
 
 ## Skills Practiced
 - Network Enumeration
