@@ -8,7 +8,13 @@ This repository contains my cybersecurity learning journey, lab writeups, enumer
 - Telnet Enumeration
 - SMB Exploitation 
 - FTP Exploitation 
-- Telnet Exploitation 
+- Telnet Exploitation
+- Nmap 
+- Hydra
+- Wireshark 
+- Linux Fundamental labs
+- Linux Privelage Escalation 
+- Network Enumeration 
 
 ## Skills Practiced
 - Network Enumeration
