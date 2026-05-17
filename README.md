@@ -9,8 +9,8 @@ This repository contains my cybersecurity learning journey, lab writeups, enumer
 - SMB Exploitation 
 - FTP Exploitation 
 - Telnet Exploitation
-- Nmap 
-- Hydra
+- Nmap-Recon 
+- Hydra- Brute force 
 - Wireshark 
 - Linux Fundamental labs
 - Linux Privelage Escalation 
