@@ -1,4 +1,4 @@
-#Cybersecurity-Labs-2026
+Cybersecurity-Labs-2026
 
 This repository contains my cybersecurity learning journey, lab writeups, enumeration exercises, and digital forensics practice.
 
